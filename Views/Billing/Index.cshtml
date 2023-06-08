@@ -1,0 +1,40 @@
+@model List<GroceryManagementSystem.Models.Bill>
+
+<h2>Bills</h2>
+
+<!-- Create Bill -->
+<h3>Create Bill</h3>
+<a href="/Billing/Create" class="btn btn-primary">Create Bill</a>
+
+<!-- List Bills -->
+<h3>List of Bills</h3>
+@if (Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Is Paid</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var bill in Model)
+            {
+                        <tr>
+                            <td>@bill.Date.ToShortDateString()</td>
+                            <td>@bill.GroceryItem.Name</td>
+                            <td>@bill.Quantity</td>
+                            <td>@bill.GrandTotal.ToString("F2")</td>
+                            <td>@(bill.IsPaid ? "Paid" : "Unpaid")</td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
+else
+{
+        <p>No bills have been created.</p>
+}

@@ -1,0 +1,14 @@
+@model GroceryItem
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <h2>Item Details</h2>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>@Model.Name</h4>
+            <p>@Model.Description</p>
+            <p>Price: $@Model.Price.ToString("F2")</p>
+        </div>
+    </div>
+</div>
