@@ -52,7 +52,7 @@ This is a web application for managing grocery items and bills.
    dotnet run
    ```
 
-9. Open a web browser and navigate to `http://localhost:5000` to access the application.
+9. Open a web browser and navigate to `http://localhost:5121` to access the application.
 
 ## Usage
 
