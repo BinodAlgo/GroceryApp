@@ -99,5 +99,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 This project is licensed under the [MIT License](LICENSE).
 ```
-
-Please make sure to update the repository URL, database connection details, and any other specific information relevant to your project.
