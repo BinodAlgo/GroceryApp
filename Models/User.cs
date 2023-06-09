@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 public class User
 {
   [Key]
-  public int Id { get; set; }
+  public int UserId { get; set; }
 
   public string? UserRole { get; set; }
 

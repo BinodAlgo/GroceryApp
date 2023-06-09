@@ -50,7 +50,7 @@ public class HomeController : Controller
     var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
     // Check if the user with the specified ID exists
-    var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+    var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
     if (user == null)
     {
       return NotFound();
