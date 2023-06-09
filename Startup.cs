@@ -1,10 +1,7 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using GroceryManagementSystem.Data;
+using Microsoft.Extensions.FileProviders;
 
 namespace GroceryManagementSystem
 {
@@ -17,7 +14,6 @@ namespace GroceryManagementSystem
 
     public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
       var connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -27,10 +23,24 @@ namespace GroceryManagementSystem
 
       services.AddControllersWithViews();
 
-      // Add your other services here
+      services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+          .AddCookie(options =>
+          {
+            options.Cookie.HttpOnly = true;
+            options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            options.LoginPath = "/Account/Login";
+            options.AccessDeniedPath = "/Account/AccessDenied";
+          });
+
+      services.AddAuthorization(options =>
+      {
+        options.AddPolicy("AdminOnly", policy =>
+              {
+            policy.RequireRole("Admin");
+          });
+      });
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       if (env.IsDevelopment())
@@ -45,6 +55,12 @@ namespace GroceryManagementSystem
 
       app.UseHttpsRedirection();
       app.UseStaticFiles();
+      app.UseStaticFiles(new StaticFileOptions
+      {
+        FileProvider = new PhysicalFileProvider(
+              Path.Combine(env.ContentRootPath, "uploads")),
+        RequestPath = "/uploads"
+      });
 
       app.UseRouting();
 
