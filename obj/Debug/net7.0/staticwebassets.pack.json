@@ -245,12 +245,28 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/dmxjzkxb.bh4.png",
+      "PackagePath": "staticwebassets/uploads/dmxjzkxb.bh4.png"
+    },
+    {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/k2boopwo.ujc.png",
+      "PackagePath": "staticwebassets/uploads/k2boopwo.ujc.png"
+    },
+    {
       "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/ldnkqjkn.wny.svg",
       "PackagePath": "staticwebassets/uploads/ldnkqjkn.wny.svg"
     },
     {
       "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/leavdenf.jqv.jpeg",
       "PackagePath": "staticwebassets/uploads/leavdenf.jqv.jpeg"
+    },
+    {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/vlcldztn.wqd.png",
+      "PackagePath": "staticwebassets/uploads/vlcldztn.wqd.png"
+    },
+    {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/znm3utuj.pkx.png",
+      "PackagePath": "staticwebassets/uploads/znm3utuj.pkx.png"
     },
     {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.GroceryManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",

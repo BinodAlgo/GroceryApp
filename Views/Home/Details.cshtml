@@ -1,14 +1,18 @@
 @model GroceryItem
 
-<!-- Main Content -->
-<div class="container mt-4">
-    <h2>Item Details</h2>
-    <hr>
-    <div class="row">
-        <div class="col-lg-6">
-            <h4>@Model.Name</h4>
-            <p>@Model.Description</p>
-            <p>Price: $@Model.Price.ToString("F2")</p>
-        </div>
+<h2>Product Details</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="@Url.Content(Model.ImageUrl)" class="img-thumbnail" alt="Product Image">
     </div>
+    <div class="col-md-8">
+        <h4>@Model.Name</h4>
+        <p>Description: @Model.Description</p>
+        <p>Price: $@Model.Price.ToString("F2")</p>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a href="@Url.Action("Index", "GroceryItems")" class="btn btn-primary">Back to Products</a>
 </div>

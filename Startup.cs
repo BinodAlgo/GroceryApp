@@ -69,7 +69,14 @@ namespace GroceryManagementSystem
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapControllerRoute(
+
+       endpoints.MapControllerRoute(
+       name: "groceryDetails",
+       pattern: "GroceryItems/Details/{id}",
+       defaults: new { controller = "GroceryItems", action = "Details" });
+
+
+      endpoints.MapControllerRoute(
                   name: "default",
                   pattern: "{controller=Home}/{action=Index}/{id?}");
       });

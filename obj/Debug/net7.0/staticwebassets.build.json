@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ng9FF8dHprmqBLbKxUdNJXV8O2zdidb9O4pDOiXUYZo=",
+  "Hash": "hy7BEQGtFeN1VPBW1faj0wID/oahlVDcjbmzx6+8XZg=",
   "Source": "GroceryManagementSystem",
   "BasePath": "_content/GroceryManagementSystem",
   "Mode": "Default",
@@ -1071,6 +1071,40 @@
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
     },
     {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/dmxjzkxb.bh4.png",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/dmxjzkxb.bh4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/dmxjzkxb.bh4.png"
+    },
+    {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/k2boopwo.ujc.png",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/k2boopwo.ujc.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/k2boopwo.ujc.png"
+    },
+    {
       "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/ldnkqjkn.wny.svg",
       "SourceId": "GroceryManagementSystem",
       "SourceType": "Discovered",
@@ -1103,6 +1137,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/leavdenf.jqv.jpeg"
+    },
+    {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/vlcldztn.wqd.png",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/vlcldztn.wqd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/vlcldztn.wqd.png"
+    },
+    {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/znm3utuj.pkx.png",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/znm3utuj.pkx.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/znm3utuj.pkx.png"
     }
   ]
 }
