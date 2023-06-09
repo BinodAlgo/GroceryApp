@@ -14,7 +14,7 @@
 
     <div class="form-group">
         @Html.LabelFor(model => model.Price)
-        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+       @Html.TextBoxFor(model => model.Price, "{0:F2}", new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
     </div>
 
