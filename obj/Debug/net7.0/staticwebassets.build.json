@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6Uw4gmn5DIXRSB/XTwRovUcbumnnufftIg83HnhyRTE=",
+  "Hash": "ng9FF8dHprmqBLbKxUdNJXV8O2zdidb9O4pDOiXUYZo=",
   "Source": "GroceryManagementSystem",
   "BasePath": "_content/GroceryManagementSystem",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/ldnkqjkn.wny.svg"
+    },
+    {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/leavdenf.jqv.jpeg",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/leavdenf.jqv.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/leavdenf.jqv.jpeg"
     }
   ]
 }

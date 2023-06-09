@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets/uploads/ldnkqjkn.wny.svg"
     },
     {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/leavdenf.jqv.jpeg",
+      "PackagePath": "staticwebassets/uploads/leavdenf.jqv.jpeg"
+    },
+    {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.GroceryManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
