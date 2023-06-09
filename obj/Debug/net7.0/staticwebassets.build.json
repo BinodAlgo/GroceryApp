@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PO2JjeK6fc8HwkOD4NQJ/i+r2wszf0CMZR67+JN/Nbo=",
+  "Hash": "6Uw4gmn5DIXRSB/XTwRovUcbumnnufftIg83HnhyRTE=",
   "Source": "GroceryManagementSystem",
   "BasePath": "_content/GroceryManagementSystem",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/ldnkqjkn.wny.svg",
+      "SourceId": "GroceryManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/",
+      "BasePath": "_content/GroceryManagementSystem",
+      "RelativePath": "uploads/ldnkqjkn.wny.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/ldnkqjkn.wny.svg"
     }
   ]
 }

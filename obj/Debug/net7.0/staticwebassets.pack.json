@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/binodacharya/Documents/C# Project/GroceryManagementSystem/wwwroot/uploads/ldnkqjkn.wny.svg",
+      "PackagePath": "staticwebassets/uploads/ldnkqjkn.wny.svg"
+    },
+    {
       "Id": "obj/Debug/net7.0/staticwebassets/msbuild.GroceryManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -1,65 +1,150 @@
-using Microsoft.EntityFrameworkCore;
 using GroceryManagementSystem.Data;
-using Microsoft.AspNetCore.Authentication.Cookies; // Add this namespace
-using System.IO;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Mvc;
 
-var builder = WebApplication.CreateBuilder(args);
-var configuration = builder.Configuration;
-var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-// Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 28))));
-builder.Services.AddControllersWithViews();
-
-// Add authentication services
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-      options.Cookie.HttpOnly = true;
-      options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-      options.LoginPath = "/Account/Login";
-      options.AccessDeniedPath = "/Account/AccessDenied";
-    });
-
-// Add authorization policies
-builder.Services.AddAuthorization(options =>
+public class GroceryItemsController : Controller
 {
-  options.AddPolicy("AdminOnly", policy =>
+  private readonly ApplicationDbContext _context;
+  private readonly IWebHostEnvironment _webHostEnvironment;
+
+  public GroceryItemsController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
   {
-    policy.RequireRole("Admin");
-  });
-});
+    _context = context;
+    _webHostEnvironment = webHostEnvironment;
+  }
 
-// Build the application.
-var app = builder.Build();
+  // Index action to display a list of grocery items
+  [HttpGet]
+  public IActionResult Index()
+  {
+    var groceryItems = _context.GroceryItems.ToList();
+    return View(groceryItems);
+  }
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-  app.UseExceptionHandler("/Home/Error");
-  app.UseHsts();
+  [HttpGet]
+  public IActionResult Create()
+  {
+    return View();
+  }
+
+  [HttpPost]
+  [ValidateAntiForgeryToken]
+  public async Task<IActionResult> Create(GroceryItem groceryItem, IFormFile imageFile)
+  {
+    if (ModelState.IsValid)
+    {
+      // Save the image file
+      if (imageFile != null && imageFile.Length > 0)
+      {
+        var uploadsDir = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+        if (!Directory.Exists(uploadsDir))
+        {
+          Directory.CreateDirectory(uploadsDir);
+        }
+
+        var fileName = Path.GetRandomFileName() + Path.GetExtension(imageFile.FileName);
+        var filePath = Path.Combine(uploadsDir, fileName);
+
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+          await imageFile.CopyToAsync(fileStream);
+        }
+
+        // Assign the file path to the GroceryItem's ImageUrl property
+        groceryItem.ImageUrl = "/uploads/" + fileName;
+      }
+
+      _context.GroceryItems.Add(groceryItem);
+      await _context.SaveChangesAsync(); // Save changes asynchronously
+      return RedirectToAction(nameof(Index));
+    }
+
+    return View(groceryItem);
+  }
+
+  [HttpGet]
+  public IActionResult Edit(int id)
+  {
+    var groceryItem = _context.GroceryItems.Find(id);
+    if (groceryItem == null)
+    {
+      return NotFound();
+    }
+    return View(groceryItem);
+  }
+
+  [HttpPost]
+  [ValidateAntiForgeryToken]
+  public async Task<IActionResult> Edit(int id, GroceryItem groceryItem, IFormFile imageFile)
+  {
+    if (id != groceryItem.Id)
+    {
+      return NotFound();
+    }
+
+    if (ModelState.IsValid)
+    {
+      // Save the image file
+      if (imageFile != null && imageFile.Length > 0)
+      {
+        var uploadsDir = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+        if (!Directory.Exists(uploadsDir))
+        {
+          Directory.CreateDirectory(uploadsDir);
+        }
+
+        var fileName = Path.GetRandomFileName() + Path.GetExtension(imageFile.FileName);
+        var filePath = Path.Combine(uploadsDir, fileName);
+
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+          await imageFile.CopyToAsync(fileStream);
+        }
+
+        // Assign the file path to the GroceryItem's ImageUrl property
+        groceryItem.ImageUrl = "/uploads/" + fileName;
+      }
+
+      _context.Update(groceryItem);
+      _context.SaveChanges();
+      return RedirectToAction(nameof(Index));
+    }
+    return View(groceryItem);
+  }
+
+  [HttpGet]
+  public IActionResult Delete(int id)
+  {
+    var groceryItem = _context.GroceryItems.Find(id);
+    if (groceryItem == null)
+    {
+      return NotFound();
+    }
+    return View(groceryItem);
+  }
+
+  [HttpPost]
+  public async Task<IActionResult> DeleteConfirmed(int id)
+  {
+    var groceryItem = await _context.GroceryItems.FindAsync(id);
+    if (groceryItem == null)
+    {
+      return NotFound();
+    }
+
+    // Delete the associated image file
+    if (!string.IsNullOrEmpty(groceryItem.ImageUrl))
+    {
+      var filePath = Path.Combine(_webHostEnvironment.WebRootPath, groceryItem.ImageUrl.TrimStart('/'));
+      if (System.IO.File.Exists(filePath))
+      {
+        System.IO.File.Delete(filePath);
+      }
+    }
+
+    _context.GroceryItems.Remove(groceryItem);
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction(nameof(Index));
+  }
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-// Configure the static file provider
-app.UseStaticFiles(new StaticFileOptions
-{
-  FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "uploads")),
-  RequestPath = "/uploads"
-});
-
-app.UseRouting();
-
-app.UseAuthentication(); // Add this line to enable authentication
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();
