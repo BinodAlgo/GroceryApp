@@ -22,4 +22,6 @@ public class GroceryItem
  [Required]
  public int Quantity {get;set;}
 public string? ImageUrl { get; set; }
+[NotMapped]
+  public IFormFile? ImageFile { get; set; }
 }
