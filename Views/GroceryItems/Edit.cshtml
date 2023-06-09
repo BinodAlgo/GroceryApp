@@ -1,24 +1,41 @@
 @model GroceryItem
 
-<h2>Edit Item</h2>
+<h2>Edit Grocery Item</h2>
 
-<form asp-action="Edit">
-  <input asp-for="Id" type="hidden" />
-  <div class="form-group">
-    <label asp-for="Name" class="control-label"></label>
-    <input asp-for="Name" class="form-control" />
-    <span asp-validation-for="Name" class="text-danger"></span>
-  </div>
-  <div class="form-group">
-    <label asp-for="Description" class="control-label"></label>
-    <textarea asp-for="Description" class="form-control"></textarea>
-    <span asp-validation-for="Description" class="text-danger"></span>
-  </div>
-  <div class="form-group">
-    <label asp-for="Price" class="control-label"></label>
-    <input asp-for="Price" class="form-control" />
-    <span asp-validation-for="Price" class="text-danger"></span>
-  </div>
-  <button type="submit" class="btn btn-primary">Update</button>
-</form>
+@using (Html.BeginForm("Edit", "GroceryItems", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImageFile)
+        <input type="file" name="imageFile" class="form-control-file" accept=".jpg,.jpeg,.png">
+        @Html.ValidationMessageFor(model => model.ImageFile, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <img src="@Url.Content(Model.ImageUrl)" alt="Grocery Item Image" class="img-thumbnail" width="200">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a href="@Url.Action("Index", "GroceryItems")" class="btn btn-secondary">Cancel</a>
+    </div>
+}

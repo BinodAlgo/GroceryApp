@@ -106,9 +106,10 @@ public class GroceryItemsController : Controller
       }
 
       _context.Update(groceryItem);
-      _context.SaveChanges();
+      await _context.SaveChangesAsync();
       return RedirectToAction(nameof(Index));
     }
+
     return View(groceryItem);
   }
 
@@ -124,6 +125,7 @@ public class GroceryItemsController : Controller
   }
 
   [HttpPost]
+  [ValidateAntiForgeryToken]
   public async Task<IActionResult> DeleteConfirmed(int id)
   {
     var groceryItem = await _context.GroceryItems.FindAsync(id);
@@ -135,10 +137,10 @@ public class GroceryItemsController : Controller
     // Delete the associated image file
     if (!string.IsNullOrEmpty(groceryItem.ImageUrl))
     {
-      var filePath = Path.Combine(_webHostEnvironment.WebRootPath, groceryItem.ImageUrl.TrimStart('/'));
-      if (System.IO.File.Exists(filePath))
+      var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, groceryItem.ImageUrl.TrimStart('/'));
+      if (System.IO.File.Exists(imagePath))
       {
-        System.IO.File.Delete(filePath);
+        System.IO.File.Delete(imagePath);
       }
     }
 
