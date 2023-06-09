@@ -7,7 +7,6 @@ This is an online grocery application that allows users to browse and purchase g
 
 - User Registration and Login
 - Browse Grocery Items
-- Add Items to Cart
 - Create and Manage Bills
 - Admin Panel for Grocery Item Management and User Account Management
 - Logout Functionality
